@@ -1,0 +1,92 @@
+{"builders": [
+    {
+        "type": "azure-arm",
+
+
+        "client_id": "{{user `azure-client-id`}}",
+        "client_secret": "{{user `azure-client-secret`}}",
+        "tenant_id": "{{user `azure-tenant-id`}}",
+        "subscription_id": "{{user `azure-subscription-id`}}",
+
+        "location": "{{user `azure-region`}}",
+        "managed_image_name": "{{user `managed_image_name`}}",
+        "managed_image_resource_group_name": "{{user `azure-resource-group`}}",
+        
+        "os_type": "{{ user `os_type` }}",
+        "image_publisher": "{{ user `image_publisher` }}",
+        "image_offer": "{{ user `image_offer` }}",
+        "image_sku": "{{ user `image_sku` }}",
+        
+        
+
+        "azure_tags": {
+            "region": "east",
+            "type": "compute",
+            "builder": "packer"
+        },
+
+        "vm_size": "{{user `vm-size`}}"
+    }
+],
+"provisioners": [
+    
+    {
+        
+        "type": "shell",
+        "inline": [
+            "sudo mkdir /usr/share/shellshock",
+            "sudo mkdir /usr/share/SLS"
+        ]
+    },     
+    {
+            "type": "file",
+            "source": "SLS-env.sh",
+            "destination": "/tmp/SLS-env.sh"
+    
+    },
+    {
+            "type": "file",
+            "source": "files/SLS",
+            "destination": "/tmp"
+    },
+    {
+            "type": "file",
+            "source": "files/shellshock",
+            "destination": "/tmp"
+    },
+    {
+            "type": "file",
+            "source": "docker.sh",
+            "destination": "/tmp/docker.sh"
+    },
+    {
+            "type": "shell",
+            "inline": [
+                "sudo chmod +x /tmp/docker.sh",
+                "sudo /tmp/docker.sh",
+
+                "sudo apt-get update -y",
+                "sudo apt-get upgrade -y",
+
+                "sudo apt-get install docker-compose -y"
+                ,
+                "sudo mv /tmp/SLS /usr/share/",
+                "sudo mv /tmp/shellshock /usr/share/",
+                "sudo chmod +x /tmp/SLS-env.sh",
+                "sudo chmod 777 /usr/share/shellshock/safe.cgi",
+                "sudo chmod 777 /usr/share/shellshock/victim.cgi",
+
+                "sudo mv /usr/share/shellshock/startup.service /etc/systemd/system/startup.service",
+                "sudo systemctl daemon-reload",
+                "sudo systemctl enable startup.service",
+                
+                "sudo apt install /usr/share/SLS/sls_systemd.deb -y",
+                "sudo apt install /usr/share/SLS/sls_content.deb -y",
+                "sudo chmod +x /tmp/SLS-env.sh",
+                "sudo /tmp/SLS-env.sh",
+                "sudo systemctl enable sophoslinuxsensor"
+            ]
+    }
+    
+]
+}
