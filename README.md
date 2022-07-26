@@ -37,23 +37,11 @@ a http page vulnerable to shellshock RCE.
 
 ## Screenshots
 
-Launching Burp Suite Request
+
 ![image](https://user-images.githubusercontent.com/82817752/181119596-5b8959e7-62be-4999-872c-a446242ab876.png)
 
-
-
-
-
-
-Getting a Reverse Shell
 ![image](https://user-images.githubusercontent.com/82817752/181119651-42fe7813-1482-4976-aeca-22cfe262dff6.png)
 
-
-
-
-
-
-Sophos Linux Sensor Alert
 ![image](https://user-images.githubusercontent.com/82817752/181119681-eab5fc1c-5f72-49db-88b5-a467c6ba17e2.png)
 
 ## Show your support
