@@ -12,6 +12,9 @@ a http page vulnerable to shellshock RCE.
 
 ## Steps
 
+Requirements:
+You will need the deb packages for the Sophos Linux Sensor placed in Files/SLS
+
 ## Packer
 1. Adjust variables for your environment in variables.json
 2. Adjust Sophos Central ID in SLS-env.sh
