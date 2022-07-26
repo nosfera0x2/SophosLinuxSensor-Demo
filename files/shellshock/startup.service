@@ -1,0 +1,14 @@
+[Unit]
+Description=Startup Script
+Requires=docker.service
+After=docker.service
+
+[Service]
+WorkingDirectory=/usr/share/shellshock
+ExecStartPre=/bin/sleep 30
+ExecStart=docker-compose -f docker-compose.yml up -d
+
+
+
+[Install]
+WantedBy=multi-user.target
