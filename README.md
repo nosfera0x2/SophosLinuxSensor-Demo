@@ -7,7 +7,7 @@
 
 ## About
 This repository seeks to build an image to Azure via Hashicorp Packer.
-When a virtual machine is build off the image, it will already have the Sophos Linux Sensor running, as well as a docker container hosting
+When a virtual machine is built off the image, it will already have the Sophos Linux Sensor running, as well as a docker container hosting
 a http page vulnerable to shellshock RCE.
 
 ## Steps
