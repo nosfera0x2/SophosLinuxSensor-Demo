@@ -13,7 +13,7 @@ a http page vulnerable to shellshock RCE.
 ## Steps
 
 Requirements:
-You will need the deb packages for the Sophos Linux Sensor placed in files/SLS
+You will need the deb packages for the Sophos Linux Sensor placed in files/SLS (Provided by your Sophos Representative). 
 
 ## Packer
 1. Adjust variables for your environment in variables.json
