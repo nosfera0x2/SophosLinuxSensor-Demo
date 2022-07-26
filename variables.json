@@ -1,0 +1,18 @@
+{
+    
+    "azure-subscription-id": "<your subscription id>",
+    "azure-object-id": "<The object ID for the AAD SP; optional>",
+    "azure-client-id": "<client id for packer service principal>",
+    "azure-client-secret": "<client secret for packer service principal>",
+    "azure-tenant-id": "<your azure tenant id>",
+    "azure-resource-group": "<your azure resource group the image will land in>",
+    "azure-region": "<region you are building in>",
+    "vm-size": "Standard_DS1_v2",
+    "os_type": "Linux",
+    "managed_image_name": "SLS-ubuntu",
+    "image_publisher": "canonical",
+    "image_offer": "0001-com-ubuntu-server-focal",
+    "image_sku": "20_04-lts-gen2"
+    
+  
+}
