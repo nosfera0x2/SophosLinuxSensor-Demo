@@ -73,8 +73,6 @@
                 "sudo mv /tmp/SLS /usr/share/",
                 "sudo mv /tmp/shellshock /usr/share/",
                 "sudo chmod +x /tmp/SLS-env.sh",
-                "sudo chmod 777 /usr/share/shellshock/safe.cgi",
-                "sudo chmod 777 /usr/share/shellshock/victim.cgi",
 
                 "sudo mv /usr/share/shellshock/startup.service /etc/systemd/system/startup.service",
                 "sudo systemctl daemon-reload",
